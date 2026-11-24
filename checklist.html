@@ -55,24 +55,22 @@
     .opts input { margin-right: 0.3rem; accent-color: var(--violet); }
     .result, .block { margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: 1.25rem; background: var(--paper); border: 1px solid var(--line); }
     .score { font-family: var(--display); font-size: 2.4rem; color: var(--navy); margin: 0; }
-    .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
-    button, .actions a {
+    .report { margin-top: 1rem; }
+    button {
       font: inherit;
       border-radius: 100px;
       padding: 0.55rem 0.95rem;
-      text-decoration: none;
       border: 1px solid var(--accent);
       background: var(--accent);
       color: #fff;
       cursor: pointer;
     }
-    .actions a.alt, button.alt { background: #fff; color: var(--navy); border-color: var(--line); }
     ol.plain { margin: 0.3rem 0 0; padding-left: 1.2rem; }
     .warn { color: var(--muted); font-size: 0.92rem; }
     @media print {
       body { background: #fff; }
       .actions, header.brand svg { }
-      .actions { display: none; }
+      .report { display: none; }
       fieldset, .result, .block { break-inside: avoid; }
     }
   </style>
@@ -85,17 +83,13 @@
     </header>
     <h1>Безопасный ИИ в бизнесе: 25 вопросов, которые должен задать себе руководитель</h1>
     <p class="lede">Это предварительная самодиагностика, не профессиональный аудит безопасности. Ответы остаются в этом браузере.</p>
-    <div class="actions">
-      <button type="button" id="print">Скачать PDF</button>
-      <a class="alt" href="memo.html">Памятка сотрудника</a>
-      <a class="alt" href="index.html">К презентации</a>
-    </div>
 
     <form id="audit"></form>
     <section class="result" aria-live="polite">
       <p class="score" id="score">—</p>
       <p id="summary">Отметьте вопросы, чтобы увидеть слабые места.</p>
       <div id="advice"></div>
+      <p class="report"><button type="button" id="print">Сохранить отчёт в PDF</button></p>
     </section>
 
     <section class="block">
@@ -120,6 +114,20 @@
         <li>Как подтверждать платежи и смену реквизитов.</li>
         <li>Как учат сотрудников и куда сообщать об инциденте.</li>
       </ol>
+    </section>
+
+    <section class="block">
+      <h2>Памятка сотрудника</h2>
+      <ol class="plain">
+        <li>Используй только согласованные инструменты.</li>
+        <li>Не передавай пароли и конфиденциальные данные.</li>
+        <li>Обезличивай информацию перед отправкой.</li>
+        <li>Проверяй факты, цифры и ссылки.</li>
+        <li>Не отправляй непроверенный результат клиенту.</li>
+        <li>Подтверждай подозрительные поручения руководства через независимый канал.</li>
+        <li>Немедленно сообщай о возможной утечке.</li>
+      </ol>
+      <p class="warn">Если сомневаешься, не отправляй. Сначала спроси руководителя.</p>
     </section>
   </main>
   <script>
