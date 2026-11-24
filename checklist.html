@@ -65,13 +65,54 @@
       color: #fff;
       cursor: pointer;
     }
-    ol.plain { margin: 0.3rem 0 0; padding-left: 1.2rem; }
-    .warn { color: var(--muted); font-size: 0.92rem; }
+    button:hover { background: #b33c22; }
+    button:active { scale: 0.97; }
+    button:focus-visible {
+      outline: 3px solid var(--navy);
+      outline-offset: 3px;
+    }
+    .offer {
+      margin-top: 1.5rem;
+      padding: 1.4rem 1.3rem;
+      border-radius: 1.25rem;
+      background: var(--navy);
+      color: #fff;
+      container-type: inline-size;
+    }
+    .offer h2 { color: #fff; margin: 0 0 0.45rem; }
+    .offer p { margin: 0; max-width: 62ch; text-wrap: pretty; }
+    .offer a {
+      display: inline-block;
+      margin-top: 1.1rem;
+      min-block-size: 2.75rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 100px;
+      background: #fff;
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .offer a:hover { background: var(--soft); }
+    .offer a:active { scale: 0.97; }
+    .offer a:focus-visible {
+      outline: 3px solid #fff;
+      outline-offset: 3px;
+    }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+      border: 0;
+    }
     @media print {
       body { background: #fff; }
-      .actions, header.brand svg { }
-      .report { display: none; }
-      fieldset, .result, .block { break-inside: avoid; }
+      .report, .offer { display: none; }
+      fieldset, .result { break-inside: avoid; }
     }
   </style>
 </head>
@@ -92,43 +133,11 @@
       <p class="report"><button type="button" id="print">Сохранить отчёт в PDF</button></p>
     </section>
 
-    <section class="block">
-      <h2>Если есть подозрение на утечку</h2>
-      <ol class="plain">
-        <li>Прекратите использовать этот сервис и не удаляйте переписку.</li>
-        <li>Сообщите тому, кто в компании отвечает за данные.</li>
-        <li>Смените пароли, если они могли попасть в сервис.</li>
-        <li>Запишите: какие данные, какой сервис, когда и кто отправил.</li>
-        <li>Не платите и не меняйте реквизиты по тому же сообщению.</li>
-      </ol>
-    </section>
-
-    <section class="block">
-      <h2>Каркас внутреннего регламента</h2>
-      <p class="warn">Шаблон для обсуждения. Это не готовый юридический документ: перед утверждением его смотрит юрист компании.</p>
-      <ol class="plain">
-        <li>Зачем компании ИИ и кто отвечает за правила.</li>
-        <li>Какие сервисы разрешены, какие только после согласования, какие запрещены.</li>
-        <li>Какие данные нельзя отправлять.</li>
-        <li>Кто проверяет результат перед клиентом, договором и платежом.</li>
-        <li>Как подтверждать платежи и смену реквизитов.</li>
-        <li>Как учат сотрудников и куда сообщать об инциденте.</li>
-      </ol>
-    </section>
-
-    <section class="block">
-      <h2>Памятка сотрудника</h2>
-      <ol class="plain">
-        <li>Используй только согласованные инструменты.</li>
-        <li>Не передавай пароли и конфиденциальные данные.</li>
-        <li>Обезличивай информацию перед отправкой.</li>
-        <li>Проверяй факты, цифры и ссылки.</li>
-        <li>Не отправляй непроверенный результат клиенту.</li>
-        <li>Подтверждай подозрительные поручения руководства через независимый канал.</li>
-        <li>Немедленно сообщай о возможной утечке.</li>
-      </ol>
-      <p class="warn">Если сомневаешься, не отправляй. Сначала спроси руководителя.</p>
-    </section>
+    <article class="offer">
+      <h2>Обучение, аудит и внедрение</h2>
+      <p>Проводим обучение сотрудников, аудиты и выездные аудиты с внедрением локального ИИ.</p>
+      <a href="https://itclastersib.ru/courses/">Познакомиться<span class="visually-hidden"> с обучением, аудитами и внедрением локального ИИ</span></a>
+    </article>
   </main>
   <script>
     const sections = [
