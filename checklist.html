@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Безопасный ИИ в бизнесе: 25 вопросов</title>
+  <link rel="stylesheet" href="fonts/faces.css">
+  <style>
+    :root {
+      --ink: #30205f;
+      --navy: #1b0d43;
+      --muted: #4a3d6e;
+      --paper: #fff;
+      --ice: #f6f8fd;
+      --soft: #f0eaff;
+      --line: #e6e1f4;
+      --violet: #5226d0;
+      --accent: #db4b2b;
+      --display: "Unbounded", "Unbounded Fallback", sans-serif;
+      --sans: "PT Sans", "PT Sans Fallback", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--ice);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 1.05rem;
+      line-height: 1.5;
+      font-size-adjust: from-font;
+    }
+    main { width: min(46rem, calc(100% - 2rem)); margin: 0 auto; padding: 2rem 0 4rem; }
+    header.brand { display: flex; align-items: center; gap: 0.7rem; color: var(--navy); }
+    header.brand svg { width: 4.2rem; height: auto; }
+    header.brand p { margin: 0; font-weight: 700; font-size: 0.85rem; }
+    h1, h2 { font-family: var(--display); color: var(--navy); letter-spacing: -0.03em; line-height: 1.15; text-wrap: balance; }
+    h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+    h2 { font-size: 1.25rem; margin: 1.6rem 0 0.6rem; }
+    .lede { color: var(--muted); max-width: 62ch; }
+    form { display: grid; gap: 1.25rem; margin-top: 1.5rem; }
+    fieldset { margin: 0; padding: 0.9rem 1rem 1rem; border: 1px solid var(--line); border-radius: 1.25rem; background: var(--paper); }
+    legend { font-family: var(--display); color: var(--violet); font-size: 0.95rem; padding: 0 0.3rem; }
+    .q { margin: 0.85rem 0 0; }
+    .q p { margin: 0 0 0.35rem; font-weight: 700; color: var(--navy); }
+    .opts { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .opts label {
+      border: 1px solid var(--line);
+      border-radius: 100px;
+      padding: 0.25rem 0.7rem;
+      background: var(--ice);
+      cursor: pointer;
+    }
+    .opts label:has(input:checked) { background: var(--soft); border-color: var(--violet); color: var(--navy); }
+    .opts input { margin-right: 0.3rem; accent-color: var(--violet); }
+    .result, .block { margin-top: 1.25rem; padding: 1rem 1.1rem; border-radius: 1.25rem; background: var(--paper); border: 1px solid var(--line); }
+    .score { font-family: var(--display); font-size: 2.4rem; color: var(--navy); margin: 0; }
+    .actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+    button, .actions a {
+      font: inherit;
+      border-radius: 100px;
+      padding: 0.55rem 0.95rem;
+      text-decoration: none;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: #fff;
+      cursor: pointer;
+    }
+    .actions a.alt, button.alt { background: #fff; color: var(--navy); border-color: var(--line); }
+    ol.plain { margin: 0.3rem 0 0; padding-left: 1.2rem; }
+    .warn { color: var(--muted); font-size: 0.92rem; }
+    @media print {
+      body { background: #fff; }
+      .actions, header.brand svg { }
+      .actions { display: none; }
+      fieldset, .result, .block { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="brand">
+      <svg viewBox="0 0 75 38" aria-hidden="true"><path fill="#1B0D43" d="M16.565 28.098q-1.286.915-2.755 1.408-1.47.494-3.342.494-3.343.001-5.216-2.104-1.873-2.103-1.873-5.652v-5.598H0v-4.353h3.38V7.5h5.582v4.793h4.885v4.353H8.962v5.598q0 1.354.606 2.122.605.768 1.892.768.807 0 1.542-.274.735-.275 1.69-.86zM30.537 24.377q1.193-1.298 1.194-3.458 0-2.157-1.194-3.457t-2.957-1.299q-1.762 0-2.956 1.299t-1.194 3.457q0 2.16 1.194 3.458 1.192 1.299 2.956 1.299t2.957-1.3m-7.86 4.518a9.33 9.33 0 0 1-3.692-3.22Q17.59 23.59 17.59 20.92q0-2.67 1.395-4.756a9.34 9.34 0 0 1 3.692-3.22 10.9 10.9 0 0 1 4.903-1.133q2.535 0 4.83 1.134a9.6 9.6 0 0 1 3.729 3.22q1.431 2.085 1.432 4.755t-1.36 4.757q-1.358 2.085-3.654 3.219t-4.977 1.134q-2.608 0-4.903-1.134M55.944 24.146q1.304-1.243 1.304-3.292 0-1.903-1.102-3.147t-2.976-1.244q-1.138 0-2.405.805-1.268.805-2.443 2.305v4.244q2.13 1.573 4.04 1.573 2.278 0 3.582-1.244m3.103-11.14q1.836 1.19 2.939 3.274 1.101 2.086 1.102 4.647-.002 2.56-1.194 4.646a8.6 8.6 0 0 1-3.306 3.274q-2.112 1.19-4.756 1.19-3.086 0-5.51-2.086v5.195h3.343V37.5H39.434v-4.354h3.416v-16.5h-3.416v-4.353h8.888v3.329q1.47-1.83 3.232-2.817 1.764-.988 3.526-.988 2.13 0 3.967 1.19"/><path fill="#FF6847" d="M71 4.5v20h4V.5H51v4z"/></svg>
+      <p>Компьютерная Академия ТОП<br>филиал, г. Омск</p>
+    </header>
+    <h1>Безопасный ИИ в бизнесе: 25 вопросов, которые должен задать себе руководитель</h1>
+    <p class="lede">Это предварительная самодиагностика, не профессиональный аудит безопасности. Ответы остаются в этом браузере.</p>
+    <div class="actions">
+      <button type="button" id="print">Скачать PDF</button>
+      <a class="alt" href="memo.html">Памятка сотрудника</a>
+      <a class="alt" href="index.html">К презентации</a>
+    </div>
+
+    <form id="audit"></form>
+    <section class="result" aria-live="polite">
+      <p class="score" id="score">—</p>
+      <p id="summary">Отметьте вопросы, чтобы увидеть слабые места.</p>
+      <div id="advice"></div>
+    </section>
+
+    <section class="block">
+      <h2>Если есть подозрение на утечку</h2>
+      <ol class="plain">
+        <li>Прекратите использовать этот сервис и не удаляйте переписку.</li>
+        <li>Сообщите тому, кто в компании отвечает за данные.</li>
+        <li>Смените пароли, если они могли попасть в сервис.</li>
+        <li>Запишите: какие данные, какой сервис, когда и кто отправил.</li>
+        <li>Не платите и не меняйте реквизиты по тому же сообщению.</li>
+      </ol>
+    </section>
+
+    <section class="block">
+      <h2>Каркас внутреннего регламента</h2>
+      <p class="warn">Шаблон для обсуждения. Это не готовый юридический документ: перед утверждением его смотрит юрист компании.</p>
+      <ol class="plain">
+        <li>Зачем компании ИИ и кто отвечает за правила.</li>
+        <li>Какие сервисы разрешены, какие только после согласования, какие запрещены.</li>
+        <li>Какие данные нельзя отправлять.</li>
+        <li>Кто проверяет результат перед клиентом, договором и платежом.</li>
+        <li>Как подтверждать платежи и смену реквизитов.</li>
+        <li>Как учат сотрудников и куда сообщать об инциденте.</li>
+      </ol>
+    </section>
+  </main>
+  <script>
+    const sections = [
+      ["Управление искусственным интеллектом", [
+        "Знаем ли мы, какие ИИ-инструменты используют сотрудники?",
+        "Есть ли перечень разрешённых сервисов?",
+        "Утверждён ли внутренний регламент?",
+        "Назначен ли ответственный за внедрение ИИ?",
+        "Проверяем ли мы эффективность внедрения?"
+      ], "Назначьте ответственного, список разрешённых сервисов и одну страницу правил. Без этого сотрудники выбирают инструменты сами."],
+      ["Защита информации", [
+        "Определены ли категории конфиденциальных данных?",
+        "Запрещена ли несогласованная загрузка клиентских баз?",
+        "Обезличиваются ли данные перед обработкой?",
+        "Проверены ли условия хранения и обработки данных поставщиком ИИ?",
+        "Контролируется ли доступ ИИ к корпоративным документам?"
+      ], "Разделите данные на разрешённые, согласуемые и запрещённые. Клиентские базы и секреты не отправляйте в сервис, условия которого вы не читали."],
+      ["Техническая безопасность", [
+        "Включена ли двухфакторная аутентификация?",
+        "Используются ли корпоративные аккаунты?",
+        "Контролируется ли установка приложений и расширений?",
+        "Отзываются ли права доступа у уволенных сотрудников?",
+        "Ведётся ли журналирование критичных операций?"
+      ], "Закройте личные аккаунты для рабочих данных, включите второй фактор и заберите доступы в день увольнения."],
+      ["Финансовые и операционные риски", [
+        "Проверяются ли финансовые расчёты ИИ?",
+        "Проверяются ли документы перед отправкой клиентам?",
+        "Есть ли независимое подтверждение финансовых операций?",
+        "Проверяется ли изменение платёжных реквизитов?",
+        "Ограничена ли возможность ИИ самостоятельно выполнять критические операции?"
+      ], "Цифры, договоры и платежи проверяет человек. Смена реквизитов подтверждается звонком по известному номеру."],
+      ["Обучение и реагирование", [
+        "Проходят ли сотрудники обучение работе с ИИ?",
+        "Знают ли они о рисках дипфейков и мошенничества?",
+        "Знают ли они, кому сообщить об инциденте?",
+        "Есть ли план реагирования на утечку информации?",
+        "Пересматриваются ли правила использования ИИ при изменении технологий?"
+      ], "Раздайте памятку и назовите человека, которому пишут в тот же день, если данные уже ушли."]
+    ];
+
+    const form = document.querySelector("#audit");
+    let n = 0;
+    for (const [title, questions] of sections) {
+      const field = document.createElement("fieldset");
+      const legend = document.createElement("legend");
+      legend.textContent = title;
+      field.append(legend);
+      for (const text of questions) {
+        n += 1;
+        const wrap = document.createElement("div");
+        wrap.className = "q";
+        const p = document.createElement("p");
+        p.id = `q${n}-label`;
+        p.textContent = `${n}. ${text}`;
+        const opts = document.createElement("div");
+        opts.className = "opts";
+        opts.setAttribute("role", "radiogroup");
+        opts.setAttribute("aria-labelledby", p.id);
+        for (const [value, label] of [["yes", "Да"], ["partial", "Частично"], ["no", "Нет"], ["na", "Не применимо"]]) {
+          const lab = document.createElement("label");
+          const input = document.createElement("input");
+          input.type = "radio";
+          input.name = `q${n}`;
+          input.value = value;
+          lab.append(input, document.createTextNode(label));
+          opts.append(lab);
+        }
+        wrap.append(p, opts);
+        field.append(wrap);
+      }
+      field.dataset.section = title;
+      form.append(field);
+    }
+
+    const points = { yes: 1, partial: 0.5, no: 0 };
+    const scoreEl = document.querySelector("#score");
+    const summary = document.querySelector("#summary");
+    const advice = document.querySelector("#advice");
+
+    function saved() {
+      const data = {};
+      for (const input of form.querySelectorAll("input:checked")) data[input.name] = input.value;
+      localStorage.setItem("ai-checklist", JSON.stringify(data));
+    }
+
+    function render() {
+      let earned = 0;
+      let possible = 0;
+      let answered = 0;
+      const weak = [];
+      let cursor = 0;
+      for (const [title, questions, tip] of sections) {
+        let sectionEarned = 0;
+        let sectionPossible = 0;
+        for (let i = 0; i < questions.length; i += 1) {
+          cursor += 1;
+          const picked = form.querySelector(`input[name=q${cursor}]:checked`);
+          if (!picked) continue;
+          answered += 1;
+          if (picked.value === "na") continue;
+          sectionPossible += 1;
+          sectionEarned += points[picked.value];
+        }
+        possible += sectionPossible;
+        earned += sectionEarned;
+        if (sectionPossible && sectionEarned / sectionPossible < 0.6) weak.push(`<p><strong>${title}.</strong> ${tip}</p>`);
+      }
+      if (!answered) {
+        scoreEl.textContent = "—";
+        summary.textContent = "Отметьте вопросы, чтобы увидеть слабые места.";
+        advice.innerHTML = "";
+        return;
+      }
+      const pct = possible ? Math.round((earned / possible) * 100) : 0;
+      scoreEl.textContent = `${pct}%`;
+      summary.textContent = possible
+        ? `Закрыто ${pct}% отмеченных применимых пунктов. «Не применимо» в расчёт не входит.`
+        : "Пока все ответы — «не применимо». Отметьте то, что относится к компании.";
+      advice.innerHTML = weak.length
+        ? weak.join("")
+        : "<p>По отмеченным пунктам явных провалов нет. Имеет смысл вернуться к вопросам через квартал или после смены сервиса.</p>";
+    }
+
+    const stored = JSON.parse(localStorage.getItem("ai-checklist") || "{}");
+    for (const [name, value] of Object.entries(stored)) {
+      const input = form.querySelector(`input[name=${name}][value=${value}]`);
+      if (input) input.checked = true;
+    }
+    form.addEventListener("change", () => { saved(); render(); });
+    document.querySelector("#print").addEventListener("click", () => print());
+    render();
+  </script>
+</body>
+</html>
